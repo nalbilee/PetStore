@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "703e96a9-fc73-4b7f-897a-e09ae8417218",
+		"name": "Petstore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38607948",
+		"_collection_link": "https://www.postman.com/joint-operations-geologist-61058124/workspace/my-tests/collection/38607948-703e96a9-fc73-4b7f-897a-e09ae8417218?action=share&source=collection_link&creator=38607948"
+	},
+	"item": [
+		{
+			"name": "Pet",
+			"item": [
+				{
+					"name": "Find By Status",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pet/findByStatus?status=available, pending, sold",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"findByStatus"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "available, pending, sold"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get pet by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/pet/2024",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"2024"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add pet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 2024,\n  \"category\": {\n    \"id\": 2024,\n    \"name\": \"max\"\n  },\n  \"name\": \"bolonka\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 2024,\n      \"name\": \"string\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pet",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "additionalMetadata",
+									"value": "Image png",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "postman-cloud:///1ef7c385-f333-4920-aaa1-1a78bc60adb1"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/pet/2024/uploadImage",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"2024",
+								"uploadImage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update pet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 2024,\n  \"category\": {\n    \"id\": 2024,\n    \"name\": \"sharik\"\n  },\n  \"name\": \"bolonka\",\n  \"photoUrls\": [\n    \"string\"\n  ],\n  \"tags\": [\n    {\n      \"id\": 2024,\n      \"name\": \"string\"\n    }\n  ],\n  \"status\": \"available\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/pet",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update pet form-data",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "max",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "avallable",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/pet/2024",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"2024"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pet",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "api_key",
+								"value": "special-key",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/pet/2024",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"pet",
+								"2024"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Store",
+			"item": [
+				{
+					"name": "Store Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 923,\n  \"petId\": 0,\n  \"quantity\": 0,\n  \"shipDate\": \"2024-09-27T05:19:16.209Z\",\n  \"status\": \"placed\",\n  \"complete\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/store/order",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/store/order/:orderId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "923"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/store/order/:orderId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"order",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "923"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Inventory",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"additionalProp1\": 0,\n  \"additionalProp2\": 0,\n  \"additionalProp3\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/store/inventory",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"store",
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1818,\n  \"username\": \"Goga\",\n  \"firstName\": \"george\",\n  \"lastName\": \"parker\",\n  \"email\": \"parker@mail\",\n  \"password\": \"1234\",\n  \"phone\": \"98765\",\n  \"userStatus\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by user name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/user/Goga",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"Goga"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create With Array",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n            \"id\": 1818,\n            \"username\": \"Goga\",\n            \"firstName\": \"george\",\n            \"lastName\": \"parker\",\n            \"email\": \"parker@mail\",\n            \"password\": \"1234\",\n            \"phone\": \"98765\",\n            \"userStatus\": 0\n    },\n    {\n            \"id\": 18182,\n            \"username\": \"Goga2\",\n            \"firstName\": \"george1\",\n            \"lastName\": \"parker2\",\n            \"email\": \"parker@mail2\",\n            \"password\": \"1234\",\n            \"phone\": \"98765\",\n            \"userStatus\": 0\n    },\n    {\n            \"id\": 18183,\n            \"username\": \"Goga3\",\n            \"firstName\": \"george3\",\n            \"lastName\": \"parker3\",\n            \"email\": \"parker@mail3\",\n            \"password\": \"1234\",\n            \"phone\": \"98765\",\n            \"userStatus\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/createWithArray",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								"createWithArray"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1818,\n  \"username\": \"Goga\",\n  \"firstName\": \"george\",\n  \"lastName\": \"parker\",\n  \"email\": \"parker@mail\",\n  \"password\": \"1234\",\n  \"phone\": \"98765\",\n  \"userStatus\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/user/:username",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"user",
+								":username"
+							],
+							"variable": [
+								{
+									"key": "username",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "queryParams",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "test",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "grant_type",
+				"value": "implicit",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "https://petstore.swagger.io/oauth/authorize",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "https://petstore.swagger.io/oauth/authorize",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
